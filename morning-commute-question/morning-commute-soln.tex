@@ -1,0 +1,343 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[english]{babel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage[margin=2.cm]{geometry}
+\usepackage{pstricks-add}	%for geometric diagrams
+\usepackage{chemfig}	%for structural formulae
+\usepackage{tabularx}	%for better tables
+\usepackage{booktabs}	%for better tables
+\usepackage[makeroom]{cancel}	%for cancelling lines
+\usepackage{hyperref}	%hyperlinks
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{epigraph}	%quotes
+\usepackage{lastpage}
+\usepackage{multicol}	%column environments
+\usepackage{fancyhdr}	%headers
+\usepackage[at]{easylist}	%easy lists
+\usepackage{wasysym}
+\usepackage{wrapfig}	%wrap figures in text
+\usepackage{subfig}		%subfigures
+\usepackage{tikz}
+
+\allowdisplaybreaks
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\setlength{\epigraphwidth}{7.7cm}
+\setlength{\tabcolsep}{10pt}
+
+% bracket group shorthands
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+% common sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cmplx}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% derivative shorthands
+\newcommand{\diff}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ndiff}[3]{\frac{\mathrm{d}^{#3}#1}{\mathrm{d}#2^{#3}}}
+\newcommand{\npdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+% theorem environments
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem*{remark}{Remark}
+
+\DeclareMathOperator{\bdy}{Bdy}
+\DeclareMathOperator{\interior}{Int}
+
+% header
+\pagestyle{fancy}
+\lhead{Now, for something completely different...}
+\rhead{Year 11 2018}
+
+%\title{Morning commute question}
+%\date{\today}
+%\author{Daniel Czapski}
+
+\begin{document}
+\subsection*{A harder combinatorics question: inspired by my morning commute}
+It is well known by frequent users of public transport that every carriage on a Sydney Trains train has a four digit serial number comprised of digits between 0 and 9 (inclusive!). The ``Train Game'' (or whatever students call it now) has the aim of combining the digits of the carriage serial number, using standard operations, to make ten. Traditionally, it is stipulated that no number can be used more than once and all numbers must be used in the order in which they appear. For example, 1345: $(1-3+4)\times5$.\\
+
+\noindent I'm bad at basic arithmetic and my morning train ride isn't that long, so I prefer to rearrange the numbers into whatever order is convenient. Thus, suppose the order of the digits is NOT important (i.e. 1234 and 3421 are equivalent). \\
+	\begin{easylist}[enumerate]
+		\ListProperties(Numbers1=r,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+		@ If serial numbers have no repetitions, how many different serial numbers are possible?
+    \end{easylist}
+    \vspace{0.5cm}
+    \noindent Serial numbers often DO have repeats, however. For example, a three digit serial number could comprise a triple (e.g. 111), a pair and a single (e.g. 112) or three singles (e.g. 123); there are three unique cases to consider.\\
+	\begin{easylist}[enumerate]
+		\ListProperties(Start1=2,Numbers1=r,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+        @ For a four digit serial number, how many unique cases are there? List them, with an example.
+        @ How many different arrangements are possible, assuming order is unimportant (i.e. 1234 and 3421 are considered the same, as they both comprise 1, 2, 3 and 4) and repetitions are permitted?
+        @ Repeat parts i), ii) and iii) for five digit serial numbers.
+    \end{easylist}
+    \vspace{0.5cm}
+\noindent Suppose we insist that we use the numbers in order. That is, order is important (i.e. 1234 and 3421 are NOT equivalent). \\
+	\begin{easylist}[enumerate]
+		\ListProperties(Start1=5,Numbers1=r,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+		@ Repeat the question assuming order IS important.
+    \end{easylist}
+
+\vspace{1cm}
+
+\subsection*{A proposed solution}
+For part i), we are simply required to choose four numbers from 10, without repetitions and considering order unimportant. A combination is sufficient for this: 
+$$
+\binom{10}{4}.
+$$
+    
+\noindent For part ii), we consider all possible forms of serial numbers, including repetitions. We have \textbf{five}\footnote{This is interesting in its own right; more on this later.}, distinct cases:\\ 
+
+\begin{easylist}[enumerate]
+	\ListProperties(Numbers1=a,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.25cm)
+	@ Four (distinct) singles (e.g. 1234);
+	@ A pair and two singles (e.g. 1123);
+	@ Two pairs (e.g. 1122) -- a few of you missed this one!
+	@ A triple and a single (e.g. 1112);
+	@ A ``quad'' (e.g. 1111).\\
+\end{easylist}
+
+\pagebreak
+
+\noindent For part iii), we will formulate a solution by considering each case separately.
+\subsubsection*{Case 1: Four singles}
+This is simply part i): we choose four different numbers from a total of ten with order unimportant:
+$$
+\binom{10}{4}.
+$$
+
+\subsubsection*{Case 2: A pair and two singles}
+We want the numbers which form the pair and both singles to all be distinct, so we want to choose three different numbers. Firstly, we may choose a number to form the pair: $\binom{10}{1}$. We have nine numbers remaining and we want to choose two for the remaining singles: $\binom{9}{2}$. So, overall,
+$$
+\binom{10}{1}\times\binom{9}{2}.
+$$
+Alternatively\footnote{Thanks, Carlos!}, we can choose three different numbers: $\binom{10}{3}$. Then, choose one of these three to be the pair: $\binom{3}{1}$, giving
+$$
+\binom{10}{3}\times\binom{3}{1}.
+$$
+A small amount of algebra (or direct evaluation) will reveal that these are both equivalent.
+
+\subsubsection*{Case 3: Two pairs}
+We want two different numbers, each of which will form a pair, so we can simply choose two numbers from ten:
+$$
+\binom{10}{2}.
+$$
+
+\subsubsection*{Case 4: A triple and a single}
+Much as in case 2, we first choose one digit to form the triple -- $\binom{10}{1}$ -- and then choose one of the remaining nine to make up the single -- $\binom{9}{1}$, giving
+$$
+\binom{10}{1}\times\binom{9}{1}.
+$$
+Or we can choose two numbers -- $\binom{10}{2}$ -- and pick one to form the triple -- $\binom{2}{1}$ -- giving 
+$$
+\binom{10}{2}\times\binom{2}{1}.
+$$
+
+\subsubsection*{Case 5: A quad}
+We simply need to choose one number to comprise the quad, which can be done in 
+$$
+\binom{10}{1}
+$$
+ways.\\
+
+\noindent So, overall, there are
+\begin{align*}
+\underbrace{\binom{10}{4}}_\text{Case 1} + \underbrace{\binom{10}{1}\times\binom{9}{2}}_\text{Case 2} + \underbrace{\binom{10}{2}}_\text{Case 3} + \underbrace{\binom{10}{1}\times\binom{9}{1}}_\text{Case 4} + \underbrace{\binom{10}{1}}_\text{Case 5} = 715\text{ ways.}
+\end{align*}
+
+Part iv) asks us to repeat this process, but for five digit serial numbers. The general idea is identical, one simply needs to take care in counting cases. In particular, there are \textbf{seven} unique cases:\\
+
+\begin{easylist}[enumerate]
+	\ListProperties(Numbers1=a,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.25cm)
+	@ Five (distinct) singles (e.g. 12345);
+	@ A pair and three singles (e.g. 11234);
+	@ Two pairs and a single (e.g. 11223);
+	@ A triple and two singles (e.g. 11123);
+	@ A triple and a pair (e.g 11122);
+	@ A quad and a single (e.g. 11112);
+	@ Five of a kind (``quint'' seems a bit too far) (e.g 11111).
+\end{easylist}
+
+\subsubsection*{Case 1: Five singles}
+We are simply choosing five distinct numbers from a total of ten with order unimportant, so
+$$
+\binom{10}{5}.
+$$
+
+\subsubsection*{Case 2: A pair and three singles}
+First, we can choose a number to form the pair: $\binom{10}{1}$. We have nine numbers remaining, and we wish to choose three to form the remaining singles: $\binom{9}{3}$. So,
+$$
+\binom{10}{1}\times\binom{9}{3}.
+$$
+
+\subsubsection*{Case 3: Two pairs and a single}
+Initially, we want to populate two pairs with two different numbers. The order in which we assign numbers to the pairs is not important, so we can simply choose two from ten: $\binom{10}{2}$. Then, we have eight remaining numbers to assign to the single: $\binom{8}{1}$. This gives us
+$$
+\binom{10}{2}\times\binom{8}{1}.
+$$
+
+\subsubsection*{Case 4: A triple and two singles}
+We can choose the triple first -- $\binom{10}{1}$ -- and then the two singles -- $\binom{9}{2}$ -- giving us
+$$
+\binom{10}{1}\times\binom{9}{2}.
+$$
+\noindent Alternatively, we note that this case is actually identical to case 3.
+
+\subsubsection*{Case 5: A triple and a pair}
+We can choose the triple first -- $\binom{10}{1}$ -- and then the pair -- $\binom{9}{1}$. Thus, we obtain
+$$
+\binom{10}{1}\times\binom{9}{1}.
+$$
+
+\subsubsection*{Case 6: A quad and a single}
+This is identical to case 5:
+$$
+\binom{10}{1}\times\binom{9}{1}.
+$$
+
+\subsubsection*{Case 7: Five of a kind}
+We are simply choosing one number from ten, so 
+$$
+\binom{10}{1}.
+$$
+
+\noindent So, overall, we have
+$$
+\underbrace{\binom{10}{5}}_\text{Case 1} + \underbrace{\binom{10}{1}\times\binom{9}{3}}_\text{Case 2} + \underbrace{\binom{10}{2}\times\binom{8}{1}}_\text{Case 3} + \underbrace{\binom{10}{1}\times\binom{9}{2}}_\text{Case 4} + \underbrace{\binom{10}{1}\times\binom{9}{1}}_\text{Case 5} + \underbrace{\binom{10}{1}\times\binom{9}{1}}_\text{Case 6} + \underbrace{\binom{10}{1}}_\text{Case 7} = 2002\text{ ways.}
+$$
+
+\vspace{1cm}
+
+\noindent The final part of the question mandates that we recalculate considering order important. The cases remain the same, we simply have to take into account the number of possible permutations of the digits chosen. The previous parts of the question gave us the number of ways of choosing the digits, so, now that they have been chosen, we must determine the number of ways in which they can be arranged. This is identical to determining the number of ``words'' possible using a certain set of letters.\\
+
+\noindent For four digit numbers, we have the same five cases from before.
+\subsubsection*{Case 1: Four singles (also, part i)}
+There are $\binom{10}{4}$ ways of choosing the digits. Additionally, we have four digits and no repeats, so there are $\dfrac{4!}{1!1!1!1!}$ ways of arranging them. So, overall, there are
+$$
+\binom{10}{4}\times\frac{4!}{1!1!1!1!}
+$$
+arrangements.
+
+\subsubsection*{Case 2: A pair and two singles}
+There are $\binom{10}{1}\times\binom{9}{2}$ ways of choosing the digits. There are four digits with one pair, so there are
+$\dfrac{4!}{2!1!1!}$ ways of arranging them. So, we have
+$$
+\binom{10}{1}\times\binom{9}{2}\times\dfrac{4!}{2!1!1!}
+$$
+arrangements.
+
+\subsubsection*{Case 3: Two pairs}
+There are $\binom{10}{2}$ choices of digits and two sets of pairs, giving $\dfrac{4!}{2!2!}$ ways of arranging them. So, we have
+$$
+\binom{10}{2}\times\frac{4!}{2!2!}
+$$
+arrangements.
+
+\subsubsection*{Case 4: A triple and a single}
+There are $\binom{10}{1}\times\binom{9}{1}$ ways of choosing the digits. We have one set of three, so there are $\dfrac{4!}{3!1!}$ ways of arranging them, giving us
+$$
+\binom{10}{1}\times\binom{9}{1}\times\frac{4!}{3!1!}
+$$
+total arrangements.
+
+\subsubsection*{Case 5: A quad}
+There are $\binom{10}{1}$ ways of choosing the digits. There is one quad (four repeats), so there are $\dfrac{4!}{4!}$ ways of arranging them. Thus, we have
+$$
+\binom{10}{1}\times\frac{4!}{4!}
+$$
+arrangements.\\
+
+\noindent This gives us a total of
+$$
+\binom{10}{4}\times\frac{4!}{1!1!1!1!} + \binom{10}{1}\times\binom{9}{2}\times\dfrac{4!}{2!1!1!} + \binom{10}{2}\times\frac{4!}{2!2!} + \binom{10}{1}\times\binom{9}{1}\times\frac{4!}{3!1!} + \binom{10}{1}\times\frac{4!}{4!} = 10000\text{ ways}
+$$
+
+\noindent by direct evaluation.\\
+
+\noindent Alternatively, we may simply note that we are finding the number of ways of arranging four digits out of a total of ten with order important and repetition permitted, which is simply $10\times10\times10\times10 = 10000$ ways.\\
+
+\noindent Five digit serial numbers are identical:
+\begin{easylist}[enumerate]
+	\ListProperties(Numbers1=a,Numbers2=l,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.25cm)
+	@ Five singles:
+	@@ $\binom{10}{5}$ choices;
+	@@ $\dfrac{5!}{1!1!1!1!1!}$ arrangements per choice;
+	@@ $\binom{10}{5}\times\dfrac{5!}{1!1!1!1!1!}$ total arrangements;
+	
+	@ A pair and three singles:
+	@@ $\binom{10}{1}\times\binom{9}{3}$ choices;
+	@@ $\dfrac{5!}{2!1!1!1!}$ arrangements per choice;
+	@@ $\binom{10}{1}\times\binom{9}{3}\times\dfrac{5!}{2!1!1!1!}$ total arrangements;
+	
+	@ Two pairs and a single:
+	@@ $\binom{10}{2}\times\binom{8}{1}$ choices;
+	@@ $\dfrac{5!}{2!2!1!}$ arrangements per choice;
+	@@ $\binom{10}{2}\times\binom{8}{1}\times\dfrac{5!}{2!2!1!}$ total arrangements;
+	
+	@ A triple and two singles:
+	@@ $\binom{10}{1}\times\binom{9}{2}$ choices;
+	@@ $\dfrac{5!}{3!1!1!}$ arrangements per choice;
+	@@ $\binom{10}{1}\times\binom{9}{2}\times\dfrac{5!}{3!1!1!}$ total arrangements;
+	
+	@ A triple and a pair:
+	@@ $\binom{10}{1}\times\binom{9}{1}$ choices;
+	@@ $\dfrac{5!}{3!2!}$ arrangements per choice;
+	@@ $\binom{10}{1}\times\binom{9}{1}\times\dfrac{5!}{3!2!}$ total arrangements;
+	
+	@ A quad and a single:
+	@@ $\binom{10}{1}\times\binom{9}{1}$ choices;
+	@@ $\dfrac{5!}{4!1!}$ arrangements per choice;
+	@@ $\binom{10}{1}\times\binom{9}{1}\times\dfrac{5!}{4!1!}$ total arrangements;
+	
+	@ Five of a kind:
+	@@ $\binom{10}{1}$ choices;
+	@@ $\dfrac{5!}{5!}$ arrangements per choice;
+	@@ $\binom{10}{1}\times\dfrac{5!}{5!}$ total arrangements.\\
+\end{easylist}
+
+\noindent Adding the total arrangements, we find that there are 100000 possible arrangements. Or, as before, the problem is simply the number of ways of arranging groups of five digits out of a total of ten with order important repetition permitted, which is $10^5=100000$ possible arrangements.
+
+\pagebreak
+
+\subsection*{Some things that I thought were interesting about this question}
+When dealing with counting problems, generally there are two major factors that will determine the type of approach one takes: whether order is important or unimportant and whether repetitions are permitted or not. Given $k$ objects from a total of $n$, we can summarise the standard approaches taught as follows:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c | c c}
+		~                       & order important 	& order unimportant \\\hline
+		repetitions allowed     & $n^k$				& $\binom{n}{k}$	\\
+		repetitions not allowed & $^nP_k$			& --				\\
+	\end{tabular}
+\end{table}
+
+\noindent That fourth case is not really addressed in school in general; this question is slightly more difficult because it falls squarely into that category. As it happens, however, there is a good theory around dealing with problems of this form (it's pretty slick, actually). The final result is as follows: given a total of $n$ (distinct) objects, the number of ways of making unordered selections of $k$ objects with repetitions permitted is given by
+$$
+\binom{n+k-1}{n-1}. \;\footnote{I have conspicuously omitted a proof of this result; if people are interested, I will put one up in a separate post.}
+$$
+In our case, we have ten numbers and we are making selections of either four or five, which gives us
+\begin{align*}
+	\text{4 numbers: } \binom{10+4-1}{10-1} = 715 && \text{5 numbers: } \binom{10+5-1}{10-1} = 2002
+\end{align*}
+ways respectively, in line with our previous calculations.\\
+
+\noindent Another thing that I thought was interesting was calculating the number of cases for each serial number length. Recall, we had five unique cases for four digit numbers and seven unique cases for five digit numbers (I was tempted to do six or seven, rather than five, but it started to get tedious counting all the cases out). As it happens, for a serial number of length $n$, the number of unique cases is given by the number of unique ways of writing $n$ as a sum of positive integers. For example, consider $n=4$. We can write it as $4$, $3+1$, $2+2$, $2+1+1$ or $1+1+1+1$. Each decomposition can be associated with a case where the numbers correspond to the sizes of the groups present. For example, we can write $5=2+2+1$, which can be associated with the case consisting of two pairs and a single; we could also write $5=3+2$, which can be associated with the case consisting of a triple and a pair.\\
+
+\noindent If we make this association, then, when calculating the number of permutations for each case in the second half of the question, the decomposition gives the number of repetitions that one needs to divide $n!$ by to give the total number of arrangements per choice. For example, we can write $4=3+1$; we associate that with the case consisting of a triple and a single; there are $\frac{4!}{3!1!}$ arrangements per choice of digits.\\
+
+\noindent When calculating the number of choices for each arrangement, I have deliberately not simplified the combinations, because I think it makes precisely what is being counted more clear and lends itself more to generalisation. When assigning numbers to groups of the same size, it does not matter in what order we do so: for instance, 1122 and 2211 are considered the same arrangement (since order is not important). In general, when assigning numbers to a set of $r$ groups of size $k$ out of a total of $n$ (remaining) numbers, there are $\binom{n}{r}$ choices. A simple example is this; consider the $n=5$ case without repetitions. Then, we have five groups of size one and ten values left to choose from, so we have $\binom{10}{5}$ choices. Note as well that the size of the groups is not actually relevant; simply the number of groups of the same size present and the number of digits to choose from. We can effectively break each case down into calculating the number of ways of choosing digits across groups of the same size, for all different sizes of groups that appear.
+\end{document}
