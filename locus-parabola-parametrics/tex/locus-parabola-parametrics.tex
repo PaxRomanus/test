@@ -1,0 +1,101 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[english]{babel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage[margin=2.cm]{geometry}
+\usepackage{pstricks-add}	%for geometric diagrams
+\usepackage{chemfig}	%for structural formulae
+\usepackage{tabularx}	%for better tables
+\usepackage{booktabs}	%for better tables
+\usepackage[makeroom]{cancel}	%for cancelling lines
+\usepackage{hyperref}	%hyperlinks
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{epigraph}	%quotes
+\usepackage{lastpage}
+\usepackage{multicol}	%column environments
+\usepackage{fancyhdr}	%headers
+\usepackage[at]{easylist}	%easy lists
+\usepackage{wasysym}
+\usepackage{wrapfig}	%wrap figures in text
+\usepackage{subfig}		%subfigures
+\usepackage{tikz}
+
+\allowdisplaybreaks
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\setlength{\epigraphwidth}{7.7cm}
+\setlength{\tabcolsep}{10pt}
+
+% bracket group shorthands
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+% common sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cmplx}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% derivative shorthands
+\newcommand{\diff}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ndiff}[3]{\frac{\mathrm{d}^{#3}#1}{\mathrm{d}#2^{#3}}}
+\newcommand{\npdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+% theorem environments
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem*{remark}{Remark}
+
+\DeclareMathOperator{\bdy}{Bdy}
+\DeclareMathOperator{\interior}{Int}
+
+% header
+\pagestyle{fancy}
+\lhead{Locus, the Parabola and Parametrics}
+\rhead{Year 11 2018}
+
+%\title{Locus, the Parabola and Parametrics}
+%\date{\today}
+%\author{Daniel Czapski}
+
+\begin{document}
+	\subsection*{Question 1: 2001 Q6 b.}
+	Consider the point $P(2at,at^2)$ on the parabola $x^2=4ay$.\\
+    
+	\begin{easylist}[enumerate]
+		\ListProperties(Numbers1=r,Numbers2=a,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+		@ Prove that the equation of the normal at $P$ is $x+ty=2at+at^3$.
+        @ Find the coordinates of the point $Q$ on the parabola such that the normal at $Q$ is perpendicular to the normal at $P$.
+        @ Show that the two normals of part ii) intersect at the point $R$ with coordinates 
+        \begin{align*}
+        x = a\left(t-\frac{1}{t}\right) && y = a\left(t^2+1+\frac{1}{t^2}\right).
+        \end{align*}
+        @ Find the Cartesian form of the equation of the locus of the point $R$.
+	\end{easylist}
+    
+    
+    \subsection*{Question 2: 2014 Q13 c.}
+    The point $P(2at,at^2)$ lies on the parabola $x^2=4ay$ with focus $S$. The point $Q$ divides the interval $PS$ internally in the ratio $t^2:1$.\\
+    
+	\begin{easylist}[enumerate]
+		\ListProperties(Numbers1=r,Numbers2=a,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+		@ Show that the coordinates of the point $Q$ are given by 
+        \begin{align*}
+        x=\frac{2at}{1+t^2} && y=\frac{2at^2}{1+t^2}.
+        \end{align*}
+        @ Express the slope of $OQ$ in terms of $t$.
+        @ Using the result from part ii), or otherwise, show that $Q$ lies on a fixed circle of radius $a$.
+	\end{easylist}
+    \pagebreak
+
+\end{document}
