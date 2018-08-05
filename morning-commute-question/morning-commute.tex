@@ -1,0 +1,98 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[english]{babel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage[margin=2.cm]{geometry}
+\usepackage{pstricks-add}	%for geometric diagrams
+\usepackage{chemfig}	%for structural formulae
+\usepackage{tabularx}	%for better tables
+\usepackage{booktabs}	%for better tables
+\usepackage[makeroom]{cancel}	%for cancelling lines
+\usepackage{hyperref}	%hyperlinks
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{epigraph}	%quotes
+\usepackage{lastpage}
+\usepackage{multicol}	%column environments
+\usepackage{fancyhdr}	%headers
+\usepackage[at]{easylist}	%easy lists
+\usepackage{wasysym}
+\usepackage{wrapfig}	%wrap figures in text
+\usepackage{subfig}		%subfigures
+\usepackage{tikz}
+
+\allowdisplaybreaks
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\setlength{\epigraphwidth}{7.7cm}
+\setlength{\tabcolsep}{10pt}
+
+% bracket group shorthands
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+% common sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cmplx}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% derivative shorthands
+\newcommand{\diff}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ndiff}[3]{\frac{\mathrm{d}^{#3}#1}{\mathrm{d}#2^{#3}}}
+\newcommand{\npdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+% theorem environments
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem*{remark}{Remark}
+
+\DeclareMathOperator{\bdy}{Bdy}
+\DeclareMathOperator{\interior}{Int}
+
+% header
+\pagestyle{fancy}
+\lhead{Now, for something completely different...}
+\rhead{Year 11 2018}
+
+%\title{Morning commute question}
+%\date{\today}
+%\author{Daniel Czapski}
+
+\begin{document}
+\subsection*{A harder combinatorics question: inspired by my morning commute}
+It is well known by frequent users of public transport that every carriage on a Sydney Trains train has a four digit serial number comprised of digits between 0 and 9 (inclusive!). The ``Train Game'' (or whatever students call it now) has the aim of combining the digits of the carriage serial number, using standard operations, to make ten\footnote{Sometimes this is very easy; other times this is particularly difficult and sometimes it is impossible! An interesting problem to consider is this: what conditions must be imposed on a serial number in order to guarantee that there exists at least one way to make ten? This is an extremely non-trivial problem!}. Traditionally, it is stipulated that no number can be used more than once and all numbers must be used in the order in which they appear. For example, 1345: $(1-3+4)\times5$.\\
+
+\noindent I'm bad at basic arithmetic and my morning train ride isn't that long, so I prefer to rearrange the numbers into whatever order is convenient. Thus, suppose the order of the digits is NOT important (i.e. 1234 and 3421 are equivalent). \\
+	\begin{easylist}[enumerate]
+		\ListProperties(Numbers1=r,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+		@ If serial numbers have no repetitions, how many different serial numbers are possible?
+    \end{easylist}
+    \vspace{0.5cm}
+    \noindent Serial numbers often DO have repeats, however. For example, a three digit serial number could comprise a triple (e.g. 111), a pair and a single (e.g. 112) or three singles (e.g. 123); there are three unique cases to consider.\\
+	\begin{easylist}[enumerate]
+		\ListProperties(Start1=2,Numbers1=r,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+        @ For a four digit serial number, how many unique cases are there? List them, with an example.
+        @ How many different arrangements are possible, assuming order is unimportant (i.e. 1234 and 3421 are considered the same, as they both comprise 1, 2, 3 and 4) and repetitions are permitted?
+        @ Repeat parts i), ii) and iii) for five digit serial numbers.
+    \end{easylist}
+    \vspace{0.5cm}
+\noindent Suppose we insist that we use the numbers in order. That is, order is important (i.e. 1234 and 3421 are NOT equivalent). \\
+	\begin{easylist}[enumerate]
+		\ListProperties(Start1=5,Numbers1=r,Numbers2=r,Progressive=1cm,Margin1=1cm,FinalMark={)},Space*=0.5cm)
+% 		@ Repeat parts i), iii) and iv) assuming order is important.
+		@ Repeat the question assuming order IS important.
+    \end{easylist}
+    
+% I reckon this question is quite challenging! I'm very interested to see what solutions are devised.
+
+\end{document}

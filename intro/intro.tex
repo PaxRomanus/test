@@ -1,0 +1,95 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[english]{babel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage[margin=2.cm]{geometry}
+\usepackage{pstricks-add}	%for geometric diagrams
+\usepackage{chemfig}	%for structural formulae
+\usepackage{tabularx}	%for better tables
+\usepackage{booktabs}	%for better tables
+\usepackage[makeroom]{cancel}	%for cancelling lines
+\usepackage{hyperref}	%hyperlinks
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{epigraph}	%quotes
+\usepackage{lastpage}
+\usepackage{multicol}	%column environments
+\usepackage{fancyhdr}	%headers
+\usepackage[at]{easylist}	%easy lists
+\usepackage{wasysym}
+\usepackage{wrapfig}	%wrap figures in text
+\usepackage{subfig}		%subfigures
+\usepackage{tikz}
+
+\allowdisplaybreaks
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\setlength{\epigraphwidth}{7.7cm}
+
+% bracket group shorthands
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+% common sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cmplx}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% derivative shorthands
+\newcommand{\diff}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ndiff}[3]{\frac{\mathrm{d}^{#3}#1}{\mathrm{d}#2^{#3}}}
+\newcommand{\npdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+% theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{corollary*}{Corollary}
+
+\DeclareMathOperator{\bdy}{Bdy}
+\DeclareMathOperator{\interior}{Int}
+
+% header
+\pagestyle{fancy}
+\lhead{By way of introduction}
+\rhead{HSC 3U/4U Discussion Group 2018}
+
+%\title{By way of introduction: Who I am, why you're here and why you should bother}
+%\date{\today}
+%\author{Daniel Czapski}
+
+\begin{document}
+	%\maketitle
+	\section*{By way of introduction: Who I am and why you should bother}
+	\epigraph{There are more things in Heav'n and Earth, Horatio/Than are dreamt of in your philosophy.}{William Shakespeare -- \textit{Hamlet }(1.5.167--168)}
+	Greetings to you all! My name is Daniel Czapski. I am a tutor with Talent 100 and it is my great pleasure to welcome you to the 3 Unit and 4 Unit Mathematics Discussion Group! This group is designed to be a place where you can discuss the NSW 3 Unit and 4 Unit Mathematics courses in particular -- but feel free to discuss anything and everything mathematics related, HSC or otherwise. I'm here to answer questions and help out as required, but this group is primarily what you make of it: feel absolutely free to ask your own questions and answer those asked by your colleagues! This is a ``discussion'' group, after all. 
+	
+	\subsection*{A bit about me}
+	You have my name and rank. I'm a member of Christian Brothers' High School, Lewisham's HSC class of 2015. I graduated as Dux with an ATAR of 99.65, was named on the All-Rounder's List for that year and achieved marks of 99 and 93 in 3 unit and 4 unit mathematics respectively. I'm currently in my third year of a Bachelor of Advanced Science (Honours) at the University of New South Wales with majors in Mathematics and Physics. Before starting with Talent in late 2017, I tutored privately for about a year. I now teach a year 11 and year 12 3 unit class at the Talent centre in Burwood.
+	
+	\subsection*{A bit about Talent 100}
+	Talent 100 is one of the largest HSC tuition centres in Sydney, with four centres in Chatswood, Epping, Hurstville and, most recently, Burwood. We focus primarily on mathematics, science and economics and employ some of the top achievers in the state in their respective subjects. You can read more about the centres, the mentors and the results on the Talent 100 website.
+	
+	\subsection*{Why study mathematics?}
+	One of the questions almost every mathematics student, including me, asks at some point, usually during topics that are particularly abstract, is ``why are we even doing this?'', generally followed up by the classic ``how is this going to help me in real life/when am I ever going to use this?'' Some teachers equivocate, some will dismiss it entirely, but it's a perfectly valid question to ask and one that assuredly deserves a decent answer. I study mathematics at university because, in my opinion, it's a beautiful and elegant subject. But what about at school? There are a few of reasons, some of which are related to the nature of mathematics. \\
+	
+	\noindent One is the fact that, at its core, mathematics is about logic, proof and argument. Mathematicians generally don't use special calculators or perform wildly complex arithmetic in their heads --  in fact, a decent proportion of mathematicians are pretty dreadful at basic arithmetic (I certainly am, ask any of my students, though I'm not quite a mathematician!). Mathematics is about the logical progression of ideas. You begin a proof by writing down all the things that you know and progress to the conclusion through a series of logical statements. But, crucially, logical thought is not limited to mathematics. It's applicable everywhere in life; hence, why we study mathematics. The theorems themselves may not have much use to you, but the thought patterns may.\\
+	
+	\noindent ``Logical thought is all well and good,'' you say, ``but what about something more tangible?'' I agree. Argument for argument's sake is satisfying to some (we call them ``pure mathematicians'' or, sometimes, ``philosophers'') but not to everyone. Some people rather like the look of
+	\begin{theorem*}
+		Suppose $f:\R\to\R$, $x,a,\ell\in\R$. Then,
+		\begin{align*}
+		\lim_{x\to a}f(x) = \ell \iff \forall\varepsilon>0\;\exists\delta>0:\abs{x-a}<\delta\implies\abs{f(x)-\ell}<\varepsilon.
+		\end{align*}
+	\end{theorem*}
+	\noindent but most would probably agree that it looks pretty awful. A second reason in favour of the study of mathematics is about problem-solving. You are given some pieces of information and a framework, and you are asked to interpret the information and operate the framework to arrive at a conclusion. Be the information a function, the framework that of differential calculus and linear functions and the conclusion the equation of a tangent, or something much more physical, like the motion of a rocket or car at some time and Newton's laws of motion, or even something completely unrelated, like whether you should go out on Friday night or not, mathematics provides you a means to solve problems and helps you hone the thought processes associated with solving problems.\\
+	
+	\noindent That's probably enough from me for now; hopefully I've managed to convince a couple of you that this is actually somewhat worth the effort. Once again, welcome to the group, all the very best with your studies and please ask questions! There will be more to come.
+\end{document}

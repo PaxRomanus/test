@@ -1,0 +1,1 @@
+Hi everyone! Here is an interesting combinatorics-based question I thought of on the train to uni which I figured might be a nice challenge and give some practice solving more difficult combinatorics questions. Dealing with repetition can be quite tricky! I'm interested to see what you make of it. 
